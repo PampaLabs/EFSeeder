@@ -77,7 +77,7 @@ builder.Services.AddDbContext<BloggingContext>((serviceProvider, options) =>
 
     options
         .UseSqlServer("YourConnectionString")
-        .UseAsyncSeeder(seeder);
+        .UseAsyncSeeding(seeder);
 });
 ```
 

@@ -7,15 +7,6 @@ namespace EFSeeder;
 /// <summary>
 /// The options to be used for data seeding.
 /// </summary>
-/// <typeparam name="TContext">The DbContext to be used.</typeparam>
-public class DataSeedingOptions<TContext> : DataSeedingOptions
-    where TContext : DbContext
-{
-}
-
-/// <summary>
-/// The options to be used for data seeding.
-/// </summary>
 public class DataSeedingOptions
 {
     /// <summary>

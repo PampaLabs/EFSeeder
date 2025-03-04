@@ -18,7 +18,7 @@ public static class DbContextOptionsBuilderExtensions
     /// <param name="optionsBuilder">The database context option builder.</param>
     /// <param name="seeder">The database seeder.</param>
     /// <returns></returns>
-    public static DbContextOptionsBuilder<TContext> UseAsyncSeeder<TContext>(this DbContextOptionsBuilder<TContext> optionsBuilder, DbContextSeeder<TContext> seeder)
+    public static DbContextOptionsBuilder<TContext> UseAsyncSeeding<TContext>(this DbContextOptionsBuilder<TContext> optionsBuilder, DbContextSeeder<TContext> seeder)
         where TContext : DbContext
     {
         optionsBuilder.UseAsyncSeeding(async (context, _, cancellationToken) =>

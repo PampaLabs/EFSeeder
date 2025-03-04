@@ -19,7 +19,7 @@ public class DataSeederTest : MsSqlServerContainerTest
             .UseSqlServer(MsSqlContainer.GetConnectionString(), options =>
                 options.MigrationsAssembly(typeof(BloggingContext).Assembly.FullName)
             )
-            .UseAsyncSeeder(seeder)
+            .UseAsyncSeeding(seeder)
             .Options;
 
         var dbContext = new BloggingContext(dbContextOptions);

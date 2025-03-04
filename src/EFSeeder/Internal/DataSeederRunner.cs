@@ -23,21 +23,30 @@ internal class DataSeederRunner<TContext>
 
         if (_context.Database.CurrentTransaction is null)
         {
-            await using var transaction = await _context.Database.BeginTransactionAsync();
-            await ExecuteSeeder();
-            await transaction.CommitAsync();
+            await using var transaction = await _context.Database.BeginTransactionAsync(CancellationToken.None);
+
+            await ExecuteSeeder(cancellationToken);
+
+            if (cancellationToken.IsCancellationRequested)
+            {
+                await transaction.RollbackAsync(CancellationToken.None);
+            }
+            else
+            {
+                await transaction.CommitAsync(CancellationToken.None);
+            }
         }
         else
         {
-            await ExecuteSeeder();
+            await ExecuteSeeder(cancellationToken);
         }
 
-        async Task ExecuteSeeder()
+        async Task ExecuteSeeder(CancellationToken cancellationToken = default)
         {
-            await seeder.SeedAsync(_context);
+            await seeder.SeedAsync(_context, cancellationToken);
 
-            await history.AddAsync(new DataSeederHistory(id));
-            await _context.SaveChangesAsync();
+            await history.AddAsync(new DataSeederHistory(id), cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }
