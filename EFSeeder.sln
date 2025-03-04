@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{062D72E6-D693-4A5D-BD27-1B2ABEADD5B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSeeder", "src\EFSeeder\EFSeeder.csproj", "{5E1C2AAD-2499-4025-9129-8FB1505824D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FF7B53DC-C21D-4FA2-A9D6-A1F1AD2BFEEB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSeeder.Test", "test\EFSeeder.Test\EFSeeder.Test.csproj", "{0A29794C-7141-4B51-BEE3-D89A31EB9F04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E1C2AAD-2499-4025-9129-8FB1505824D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E1C2AAD-2499-4025-9129-8FB1505824D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E1C2AAD-2499-4025-9129-8FB1505824D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E1C2AAD-2499-4025-9129-8FB1505824D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A29794C-7141-4B51-BEE3-D89A31EB9F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A29794C-7141-4B51-BEE3-D89A31EB9F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A29794C-7141-4B51-BEE3-D89A31EB9F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A29794C-7141-4B51-BEE3-D89A31EB9F04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E1C2AAD-2499-4025-9129-8FB1505824D5} = {062D72E6-D693-4A5D-BD27-1B2ABEADD5B1}
+		{0A29794C-7141-4B51-BEE3-D89A31EB9F04} = {FF7B53DC-C21D-4FA2-A9D6-A1F1AD2BFEEB}
+	EndGlobalSection
+EndGlobal
