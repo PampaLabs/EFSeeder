@@ -18,6 +18,26 @@ public static class DbContextOptionsBuilderExtensions
     /// <param name="optionsBuilder">The database context option builder.</param>
     /// <param name="seeder">The database seeder.</param>
     /// <returns></returns>
+    public static DbContextOptionsBuilder UseAsyncSeeding<TContext>(this DbContextOptionsBuilder optionsBuilder, DbContextSeeder<TContext> seeder)
+        where TContext : DbContext
+    {
+        optionsBuilder.UseAsyncSeeding(async (context, _, cancellationToken) =>
+        {
+            await (context as TContext)!.SeedAsync(seeder, cancellationToken);
+        });
+
+        return optionsBuilder;
+    }
+
+    /// <summary>
+    ///     Configures the seed method to run after <see cref="DatabaseFacade.EnsureCreatedAsync" />
+    ///     is called or after migrations are applied asynchronously.
+    ///     It will be invoked even if no changes to the store were performed.
+    /// </summary>
+    /// <typeparam name="TContext"></typeparam>
+    /// <param name="optionsBuilder">The database context option builder.</param>
+    /// <param name="seeder">The database seeder.</param>
+    /// <returns></returns>
     public static DbContextOptionsBuilder<TContext> UseAsyncSeeding<TContext>(this DbContextOptionsBuilder<TContext> optionsBuilder, DbContextSeeder<TContext> seeder)
         where TContext : DbContext
     {
